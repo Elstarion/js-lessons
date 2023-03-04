@@ -1,4 +1,4 @@
-const numbers = [10,5,46,32,29,7,83,56,18,75];
+const numbers = ['js',5,46,32,true,7,83,[],16,75];
 
 let sum = 0;
 let minValue = +Infinity;
