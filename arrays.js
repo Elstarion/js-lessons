@@ -1,39 +1,72 @@
 const numbers = ['js',5,46,32,true,7,83,[],16,75];
 
-let sum = 0;
-let minValue = +Infinity;
-let maxValue = -Infinity;
-
-for (let i = 0; i < numbers.length; i++) {
-
-    if (typeof numbers[i] !== 'number' ) {
-        continue;
-    }
-    sum += numbers[i];
-
-    if (numbers[i] < minValue) {
-        minValue = numbers[i];
-    }
-
-    if (numbers[i] > maxValue) {
-        maxValue = numbers[i];
-    }    
+function checkIndex(data) {
+    if (typeof data !== 'number') {
+        return true
+    } return false
 }
 
-alert(`Minimum number is: ${minValue}`);
-alert(`Maximum number is: ${maxValue}`);
-alert(`Sum is equal to: ${sum}`);
+function getMinNumber(arr) {
+    let min = Infinity;
 
-let hashtagTree = [];
-let hash = '';
+    for(let i = 0; i < arr.length; i++) {
+        if ( checkIndex(arr[i]) ) {
+            continue;
+        }
 
-for (let i = 0; i < 5; i++) {
-    hashtagTree.push(hash += '#');
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+
+    return min
 }
 
-alert(`${hashtagTree[0]}
+function getMaxNumber(arr) {
+    let max = -Infinity;
+
+    for (index of arr) {
+        if ( checkIndex(index) ) {
+            continue;
+        }
+
+        if (index > max) {
+            max = index;
+        }
+    }       
+
+    return max
+}
+
+function getSum(arr) {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if ( checkIndex(arr[i]) ) {
+            continue;
+        }
+        sum += arr[i];
+    }
+
+    return sum
+}
+
+function tree() {
+    let hashtagTree = [];
+    let hash = '';
+
+    for (let i = 0; i < 5; i++) {
+        hashtagTree.push(hash += '#')
+    }
+
+    alert(`${hashtagTree[0]}
 ${hashtagTree[1]}
 ${hashtagTree[2]}
 ${hashtagTree[3]}
-${hashtagTree[4]}
-`);
+${hashtagTree[4]}`)
+}
+
+alert(`Minimum number is: ${getMinNumber(numbers)}`);
+alert(`Maximum number is: ${getMaxNumber(numbers)}`);
+alert(`Sum is equal to: ${getSum(numbers)}`);
+tree();
