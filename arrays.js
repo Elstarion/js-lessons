@@ -59,11 +59,8 @@ function tree() {
         hashtagTree.push(hash += '#')
     }
 
-    alert(`${hashtagTree[0]}
-${hashtagTree[1]}
-${hashtagTree[2]}
-${hashtagTree[3]}
-${hashtagTree[4]}`)
+    let result = hashtagTree.join('\n');
+    return alert(result);
 }
 
 alert(`Minimum number is: ${getMinNumber(numbers)}`);
