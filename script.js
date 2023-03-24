@@ -79,5 +79,45 @@ const calculator = {
 // calculator.sum();
 // calculator.mul();
 
+// ---------------------------------------------------------------
+
+function Accumulator(x) {
+    this.y = x;
+
+    this.increment = function() {
+        return ++this.y
+    };
+
+    this.decrement = function() {
+        return --this.y
+    }; 
+}
+
+function CancelableAccumulator(x) {
+    Accumulator.call(this, x);
+    this.clear = function() {
+        return this.y = x
+    }
+}
+
+const a = new Accumulator(25);
+
+const b = new CancelableAccumulator(40);
+
+console.log(a.increment());
+console.log(a.increment());
+console.log(a.decrement());
+console.log('----------------');
+console.log(b.decrement());
+console.log(b.decrement());
+console.log(b.clear());
+console.log(b.increment());
+console.log(b.increment());
+
+
+
+
+
+
 
 
