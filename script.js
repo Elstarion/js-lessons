@@ -218,3 +218,24 @@ const b = new CancelableAccumulator(40);
 // console.log(b.clear());
 // console.log(b.increment());
 // console.log(b.increment());
+
+// ---------------------------------------------------------------
+
+Array.prototype.pow = function(n) {
+    let result = this.map(element => element ** n)
+    return result
+}
+
+const arr  = [4,5,6];
+console.log(arr.pow(4));
+
+
+function a() {console.log('test')}
+
+Function.prototype.defer = function(n) {
+    setTimeout(() => {
+        return this()
+    },n)
+}
+
+a.defer(1000);
